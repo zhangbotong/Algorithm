@@ -1,0 +1,19 @@
+
+R
+java:S1854"<Remove this useless assignment to local variable "contains".(Ÿð¼Ÿ
+K
+java:S1854"5Remove this useless assignment to local variable "b".(ÀÀ¥Ä
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÑÖËø
+<
+java:S1481"&Remove this unused "b" local variable.(ÀÀ¥Ä
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÕÇùÑ
+Q	java:S125"<This block of commented-out lines of code should be removed.(–’ë
+<
+java:S2175"&A "List<Node>" cannot contain a "int".(Ÿð¼Ÿ
+C
+java:S1481"-Remove this unused "contains" local variable.(Ÿð¼Ÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÃôÎþ
+E
+java:S1197"*Move the array designators [] to the type.(¹¦ÜÐùÿÿÿÿ
+0
+java:S1220""Move this file to a named package.

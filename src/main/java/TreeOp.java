@@ -3,6 +3,7 @@ import org.junit.jupiter.api.TestInstance;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author Kyrie
@@ -21,9 +22,15 @@ public class TreeOp {
 //        this.postOrderRecursive(root);
 //        this.invertTree(root);
 //        System.out.println(this.isSymmetric(root));
-        System.out.println("Max depth: " + this.maxDepth(root));
-        System.out.println("levelOrder：");
-        this.levelOrder(root);
+//        System.out.println("Max depth: " + this.maxDepth(root));
+//        System.out.println("levelOrder：");
+//        this.levelOrder(root);
+//        System.out.println("PreOrder iterative: ");
+//        this.preOrderIterative(root);
+//        System.out.println("inOrder iterative: ");
+//        this.inOrderIterativeCommon(root);
+        System.out.println("PostOrder iterative: ");
+        this.postOrderIterativeCommon(root);
     }
     private class TreeNode {
         int val;
@@ -192,4 +199,112 @@ public class TreeOp {
         return  leftHasPathSum || rightHasPathSum;
     }
 
+    private void preOrderIterative (TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            // 先访问恰好是root，比较简单（common 的一种特殊情况，简化版）
+            TreeNode node = stack.pop();
+            System.out.println(node.val);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+    }
+
+    private void inOrderIterative (TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            System.out.println(node.val);
+            node = node.right;
+        }
+    }
+
+    private void preOrderIterativeCommon (TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node != null) {
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+                stack.push(node);
+                stack.push(null);
+            } else {
+                node = stack.pop();
+                System.out.println(node.val);
+            }
+        }
+    }
+
+    private void inOrderIterativeCommon (TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {// 2次访问，第一次仅作入栈顺序调整，第二次才是真正访问
+            TreeNode node = stack.pop();
+            if (node != null) {
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                stack.push(node);
+                stack.push(null);// root 第2次入栈，下次该访问了.但其左右子节点还未调整到位（第1次入栈）
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+            } else {
+                node = stack.pop();
+                System.out.println(node.val);
+            }
+        }
+    }
+
+    private void postOrderIterativeCommon (TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            // First visit, only operate stack
+            if (node != null) {
+                stack.push(node);
+                stack.push(null);
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+            } else {
+                node = stack.pop();
+                System.out.println(node.val);
+            }
+        }
+    }
 }

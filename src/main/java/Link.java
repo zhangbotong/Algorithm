@@ -1,4 +1,4 @@
-
+import java.lang.reflect.Field;
 
 /**
  * @author Kyrie
@@ -12,9 +12,12 @@ public class Link {
         public Node(int i) {
             this.val = i;
         }
+        public Node() {}
     }
 
     public static void main(String[] args) {
+        Node head1 = new Node(1);
+        Class c = head1.getClass();
         Link link = new Link();
         Node head = link.generate(new int[]{1,2,3,3, 4,4});
         link.print(head);

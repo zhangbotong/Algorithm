@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Array {
     public static void main(String[] args) {
+
         BigDecimal a = new BigDecimal(-1);
         BigDecimal b = new BigDecimal(5);
         b = b.add(a);
