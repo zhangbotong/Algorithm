@@ -13,10 +13,16 @@ import java.util.List;
  * @author Kyrie
  * @date 2023/1/31 09:51
  */
-public class combinations_77 {
+public class Combinations_77 {
     private List<List<Integer>> res = new ArrayList<>();
     private List<Integer> path = new ArrayList<>();
 
+    /**
+     * startIndex 的思想很重要，它相当于回溯的一个基本条件，是你每次循环的起点，保证不重复
+     * @param n
+     * @param k
+     * @return
+     */
     public List<List<Integer>> combine(int n, int k) {
         backtracking(n, k, 1);
         return res;
@@ -42,6 +48,12 @@ public class combinations_77 {
         }
     }
 
+    @Test
+    public void test(){
+        System.out.println(combine(4, 2));
+    }
+
+    @Deprecated
     private void backtracking2 (int n, int k, int startIndex){
         for (int i = startIndex; i <= n; i++){
             path.add(i);
@@ -57,8 +69,4 @@ public class combinations_77 {
         }
     }
 
-    @Test
-    public void test(){
-        System.out.println(combine(4, 2));
-    }
 }
