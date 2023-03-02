@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * @author Kyrie
  * @date 2023/2/23 09:27
  */
-public class Fibonacci_509 {
+public class _1_Fibonacci_509 {
     /**
      * DP 五部曲：
      *  1、确定dp数组以及下标的含义
