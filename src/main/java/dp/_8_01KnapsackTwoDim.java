@@ -14,7 +14,7 @@ import java.util.Arrays;
  * 物品1  2     20
  * 物品2  4     30
  */
-public class _8_bag01TwoDim {
+public class _8_01KnapsackTwoDim {
 
     /**
      * 01 背包，二维数组解法，先遍历背包容量，再遍历物品，符合自然思维
