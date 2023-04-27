@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
  * @author Kyrie
  * @date 2023/3/2 10:43
  */
-public class _4_UniquePath_62 {
+public class _04_UniquePath_62 {
     /**
      * 此题 dp 应为二维数组方能用下标 i,j 表示位置 (i, j)，数组值表示路径数（map：位置，路径数）
      * DP 五部曲：

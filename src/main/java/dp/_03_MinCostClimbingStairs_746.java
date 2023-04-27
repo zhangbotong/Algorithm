@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
  * @author Kyrie
  * @date 2023/3/2 10:02
  */
-public class _3_MinCostClimbingStairs_746 {
+public class _03_MinCostClimbingStairs_746 {
     /**
      * cost[i]表示从第i阶楼梯向上爬需要支付的费用（一阶、二阶费用相同）
      * 楼顶即为 cost.length 阶楼梯

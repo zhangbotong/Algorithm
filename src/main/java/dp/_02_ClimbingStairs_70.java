@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
  * @author Kyrie
  * @date 2023/2/23 10:27
  */
-public class _2_ClimbingStairs_70 {
+public class _02_ClimbingStairs_70 {
     /**
      * 此题的关键是将实际问题转换为数学问题，即找到递推公式
      * DP 五部曲：

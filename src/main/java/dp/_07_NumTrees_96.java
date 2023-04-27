@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * 输入：n = 3
  * 输出：5
  */
-public class _7_NumTrees_96 {
+public class _07_NumTrees_96 {
     /**
      * f(1) = 1
      * f(2) = 2

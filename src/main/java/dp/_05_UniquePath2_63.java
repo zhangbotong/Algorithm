@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
  * @author Kyrie
  * @date 2023/3/2 11:07
  */
-public class _5_UniquePath2_63 {
+public class _05_UniquePath2_63 {
     /**
      * DP 五部曲：
      * 1、确定 dp 数组及下标含义：本题是二维数组，dp[i][j] 表示从起点到 (i, j) 的路径数
