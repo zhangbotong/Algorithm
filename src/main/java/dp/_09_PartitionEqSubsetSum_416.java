@@ -1,5 +1,7 @@
 package dp;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 给定一个只包含正整数的非空数组。是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
  * 1 <= nums.length <= 200, 1 <= nums[i] <= 100
@@ -17,11 +19,16 @@ package dp;
 public class _09_PartitionEqSubsetSum_416 {
     /**
      * 暴力解法
-     * sum/2，然后分别从数据取数，分为：1数和，2数和，3数和，...，n数和；
-     * 针对每个如 2数和，遍历数组，数1 + 数2，数1 + 数3， 数1 + 数4， ···，数1 + 数n，数2 + 数3， 数2 + 数4，···， 数2 + 数n，···，数n-1 + 数n
-     * 针对 3 数和，需要写一个 3 层循环，针对 4 数和，需要写一个 4 层循环，···，针对 n 数和，需要写一个 n 层循环
-     * 这样显然不可取，考虑使用回溯。
-     * DFS 就是为解决这种暴力遍历而生。
+     * sum/2，然后分别从数据取数，分为：1数和，2数和，3数和，...，n数和，这是最外层循环；
+     * 针对 2 数和，排列Cn2，遍历数组，1+2，1+3， ···，1+n，2+3， 2+4，···， 2+n，···，n-1+n，需要 2 层循环。
+     * 针对 3 数和，排列Cn3，需要写一个 3 层循环，1+2+3，1+2+4, ... , n-2+n-1+n
+     * 针对 4 数和，排列Cn4，需要写一个 4 层循环，···，针对 n 数和，需要写一个 n 层循环
+     * 内层循环的层数不固定，考虑使用回溯（DFS）替代循环（BFS）。DFS = recursion, BFS = loop
+     * 对于数 1：1, 1+2, 1+3, ..., 1+n, 1+2+3,..., 1+n-1+n,..., 1+2+3+...+n
+     * 对于数 2：2, 2+3, 2+4, ..., 2+n, 2+3+4,..., 2+n-1+n,..., 2+3+4+...+n
+     * 对于数 3：3, 3+4, 3+5, ..., 3+n, 3+4+5,..., 3+n-1+n,..., 3+4+5+...+n
+     * 深度优先，这回整齐了
+     * DFS(递归)：每次把一个元素折腾完，然后就相当于去掉这个元素剩下的子集。子集？递归！
      */
     public boolean canPartition(int[] nums) {
         int sum = 0;
@@ -32,6 +39,30 @@ public class _09_PartitionEqSubsetSum_416 {
             return false;
         }
         int target = sum / 2;
+        return dfs(nums, 0, target);
+    }
+
+    /**
+     * nums[startIndex, nums.length-1] 是否可以找到和为 target 的子集(whatever how many elements)
+     */
+    public boolean dfs (int[] nums, int startIndex, int target){
+        if (target == nums[startIndex]){
+            return true;
+        }
+        if (target < nums[startIndex]){
+            return false;
+        }
+        for (int i = startIndex; i < nums.length; i++){
+            if (dfs(nums, i+1, target - nums[i])){
+                return true;
+            }
+        }
         return false;
+    }
+
+    @Test
+    void test(){
+        int[] nums = {1, 5, 13, 5};
+        System.out.println(canPartition(nums));
     }
 }
