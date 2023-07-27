@@ -8,7 +8,7 @@ import java.util.Queue;
  * @author Kyrie
  * @date 2023/6/25 10:22
  */
-public class _07_01_MaxDepthOfBT {
+public class _07_01_MaxDepthOfBT_104 {
     // 迭代，层序遍历
     public int maxDepth(TreeNode root) {
         if (root == null) return 0;

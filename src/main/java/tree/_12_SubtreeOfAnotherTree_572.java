@@ -3,6 +3,7 @@ package tree;
 import org.junit.jupiter.api.Test;
 
 /**
+ * 判断一颗树是否是另一棵树的子树
  * @author Kyrie
  * @date 2023/6/20 11:04
  */
@@ -14,10 +15,13 @@ public class _12_SubtreeOfAnotherTree_572 {
         return isSameTree(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
 
+    // 后序遍历
     private boolean isSameTree(TreeNode root1, TreeNode root2) {
+        // 递归终止条件
         if (root1 == null && root2 == null) return true;
         if (root1 == null ^ root2 == null) return false;
         if (root1.val != root2.val) return false;
+        // 处理逻辑（后序递归）
         return isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right);
     }
 

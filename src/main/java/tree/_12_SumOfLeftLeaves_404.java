@@ -8,7 +8,9 @@ package tree;
 public class _12_SumOfLeftLeaves_404 {
     // 前序遍历。两个限制：1、左子树；2、叶子节点
     public int sumOfLeftLeaves(TreeNode root) {
+        // 递归终止条件
         if (root == null) return 0;
+        // 处理逻辑（先序递归）
         int sum = 0;
         if (root.left != null && root.left.left == null && root.left.right == null){
             sum += root.left.val;

@@ -34,7 +34,7 @@ public class _06_SymetricTree_101 {
     // left and right may be null
     private boolean isSymmetric(TreeNode left, TreeNode right) {
         if (left == null && right == null) return true;// both of them are null
-        if (left == null || right == null) return false; // one of them is null
+        if (left == null ^ right == null) return false; // one of them is null
         if (left.val != right.val) return false;// both of them are not null, but left.val != right.val
         // both of them are not null, and left.val == right.val
         return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);

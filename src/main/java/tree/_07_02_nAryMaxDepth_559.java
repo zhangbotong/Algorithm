@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 /**
  * 给定一个 n 叉树，找到其最大深度。
  */
-public class _07_nAryMaxDepth_559 {
+public class _07_02_nAryMaxDepth_559 {
     /**
      * 后序遍历，递归
      */

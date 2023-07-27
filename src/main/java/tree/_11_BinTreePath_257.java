@@ -52,7 +52,7 @@ public class _11_BinTreePath_257 {
     }
 
     /**
-     * 后序遍历
+     * 后序遍历，不易理解
      */
     public List<String> binaryTreePaths2(TreeNode root) {
         List<String> res = new ArrayList<>();

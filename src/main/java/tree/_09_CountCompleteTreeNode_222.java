@@ -36,10 +36,13 @@ public class _09_CountCompleteTreeNode_222 {
         int rightHeight = getHeight(root.right);
         if (leftHeight == rightHeight) {
             // 左子树一定为满二叉树
-            return 1 << leftHeight + countNodes(root.right);
+            int leftCount = (1 << leftHeight) - 1;
+            // 左子树节点数 + 右子树节点数 + 根节点
+            return (1 << leftHeight) - 1 + countNodes(root.right) + 1;
         }
         // 右子树一定为满二叉树
-        return 1 << rightHeight + countNodes(root.left);
+        int rightCount = (1 << rightHeight) - 1;
+        return (1 << rightHeight) - 1 + countNodes(root.left) + 1;
     }
 
     // 不是最易理解的写法
@@ -74,9 +77,15 @@ public class _09_CountCompleteTreeNode_222 {
         return 1 + getHeight(root.left);
     }
 
+    /**   1
+    *    / \
+    *   2   3
+    *  / \ /
+    * 4  5 6
+     */
     @Test
     void test() {
         TreeNode root = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3, new TreeNode(6), null));
-        System.out.println(countNodes2(root));
+        System.out.println(countNodes(root));
     }
 }

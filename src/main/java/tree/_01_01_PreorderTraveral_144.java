@@ -11,7 +11,7 @@ import java.util.List;
  * @author Kyrie
  * @date 2023/6/6 09:57
  */
-public class _01_PreorderTraveral_144 {
+public class _01_01_PreorderTraveral_144 {
     public List<Integer> preorderTraversal1(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         preorderRecursion1(root, res);
